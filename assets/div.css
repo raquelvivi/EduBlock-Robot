@@ -1,0 +1,45 @@
+
+      .blocklyToolboxDiv {
+        background-color: #1e1e2f;
+      }
+
+      /* Texto das categorias */
+      .blocklyTreeLabel {
+        font-size: 18px !important;
+        color: #ffffff !important;
+        font-weight: bold;
+      }
+
+      .blocklyTreeRow.blocklyTreeSelected {
+        background-color: #4f46e5 !important;
+      }
+
+      /* Ícone */
+      .blocklyTreeIcon {
+        transform: scale(1.3);
+      }
+
+      /* Fundo da área dos blocos */
+      .blocklyMainBackground {
+        fill: #cde9f7 !important; /* fundo claro */
+        border: none;
+      }
+
+      /* Caixa da toolbox (categorias) */
+      .blocklyToolboxDiv {
+        background-color: #111827 !important; /* escuro */
+        border-right: 2px solid #374151;
+      }
+
+      /* Área vertical onde ficam os nomes das categorias */
+      .blocklyTreeRoot {
+        background: transparent !important;
+        border-right: 2px solid #374151;
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        
+      }
+      .blocklyToolboxContents {
+        background: transparent !important; }

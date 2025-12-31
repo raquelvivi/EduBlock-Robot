@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- ESSENCIAL para mobile -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Meu Editor Blockly</title>
+
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+
+    <style>
+      :root {
+        --AzulVivido: "#19B5FF"; /*Azul Vivido*/
+        --AzulPetroleo: "#084D6E"; /*Azul Petroleo*/
+        --AzulCiano: "#CDE9F7"; /*Azul Ciano*/
+        --Branco: "#ffffff";
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #ffffff; /* fundo claro */
+      }
+
+      /*Toolbox*/
+      .blocklyToolboxDiv {
+        background-color: #1e1e2f;
+      }
+
+      /* Texto das categorias */
+      .blocklyTreeLabel {
+        font-size: 18px !important;
+        color: #ffffff !important;
+        font-weight: bold;
+      }
+
+      .blocklyTreeRow.blocklyTreeSelected {
+        background-color: #4f46e5 !important;
+      }
+
+      /* Ícone */
+      .blocklyTreeIcon {
+        transform: scale(1.3);
+      }
+
+      /* Fundo da área dos blocos */
+      .blocklyMainBackground {
+        fill: #cde9f7 !important; /* fundo claro */
+        border: none;
+      }
+
+      /* Caixa da toolbox (categorias) */
+      .blocklyToolboxDiv {
+        background-color: #111827 !important; /* escuro */
+        border-right: 2px solid #374151;
+      }
+
+      /* Área vertical onde ficam os nomes das categorias */
+      .blocklyTreeRoot {
+        background: transparent !important;
+        border-right: 2px solid #374151;
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .blocklyToolboxContents {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="blocklyDiv"
+      style="height: 100vh; width: 100vw; margin-top: 5vh; border: none"
+    ></div>
+    <script>
+  const Tema = Blockly.Theme.defineTheme('azul', {
+    base: Blockly.Themes.Classic,
+    componentStyles: {
+      // workspaceBackgroundColour: '#EAF6FF',   // fundo geral
+      toolboxBackgroundColour: '#ffffff',     // fundo categorias
+      toolboxForegroundColour: '#084D6E',     // texto categorias
+      flyoutBackgroundColour: '#F0F9FF',      // fundo blocos da categoria
+      flyoutForegroundColour: '#084D6E',
+      flyoutOpacity: 2,
+      scrollbarColour: '#8ECDF3',
+      insertionMarkerColour: '#19B5FF',
+      insertionMarkerOpacity: 0.3
+    }
+  });
+</script>
+
+    <script>
+      const toolbox = {
+        kind: "categoryToolbox",
+        contents: [
+          {
+            kind: "category",
+            name: "Musicas 🎵",
+            colour: "#DEDC33",
+            contents: [
+              { kind: "block", type: "controls_if" },
+              { kind: "block", type: "logic_compare" },
+            ],
+          },
+          {
+            kind: "category",
+            name: "Direções 🔄",
+            colour: "#1DE391",
+            contents: [{ kind: "block", type: "text" }],
+          },
+          {
+            kind: "category",
+            name: "Questões 🪄",
+            colour: "#33B9DE",
+            contents: [{ kind: "block", type: "text" }],
+          },
+          {
+            kind: "category",
+            name: "Opções 💡",
+            colour: "#DE33D9",
+            contents: [{ kind: "block", type: "text" }],
+          },
+        ],
+      };
+
+      const workspace = Blockly.inject("blocklyDiv", {
+        toolbox,
+        theme: Tema,
+        zoom: {
+          controls: true,
+          wheel: false,
+          startScale: 1.4,
+          maxScale: 2,
+          minScale: 0.8,
+        },
+        trashcan: true,
+        scrollbars: true,
+      });
+
+      // Corrige toque no Android
+      Blockly.Touch.clearTouchIdentifier();
+    </script>
+  </body>
+</html>
